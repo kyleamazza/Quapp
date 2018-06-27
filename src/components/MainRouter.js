@@ -12,6 +12,7 @@ import Signup from './Signup';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Quiz from './Quiz';
+import FourOhFour from './FourOhFour';
 
 const styles = theme => ({
     root: {
@@ -39,6 +40,7 @@ class MainRouter extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/quiz" component={Quiz} />
+                    <Route path="*" component={FourOhFour} />
                 </Switch>
                 <Footer />
             </div>

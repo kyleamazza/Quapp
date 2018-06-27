@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { indigo, pink } from '@material-ui/core/colors';
 
-import MenuBar from './components/MenuBar';
 import MainRouter from './components/MainRouter';
 
 const theme = createMuiTheme({
