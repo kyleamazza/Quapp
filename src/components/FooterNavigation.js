@@ -1,0 +1,29 @@
+import React from "react";
+
+import Grid from "@material-ui/core/Grid";
+
+import FooterNavigationItem from "./FooterNavigationItem";
+
+const Divider = () => {
+    return <span style={{ marginLeft: 3, marginRight: 3 }}> | </span>;
+};
+
+const FooterNavigation = props => {
+    this.props = props;
+
+    return (
+        <Grid
+            style={{ marginBottom: "0.35em" }}
+            item
+            container
+            justify="center">
+            <FooterNavigationItem text="ABOUT" />
+            <Divider />
+            <FooterNavigationItem text="SUPPORT" />
+            <Divider />
+            <FooterNavigationItem text="CONTACT" />
+        </Grid>
+    );
+};
+
+export default FooterNavigation;
