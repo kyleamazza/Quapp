@@ -17,7 +17,7 @@ const styles = theme => ({
         width: '100%',
         marginTop: theme.spacing.unit * 7,
         border: '1px solid pink',
-        paddingBottom: theme.spacing.unit * 25
+        paddingBottom: theme.spacing.unit * 30
     },
     flexContainer: {
 

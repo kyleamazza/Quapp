@@ -9,7 +9,8 @@ import Button from '@material-ui/core/Button';
 const styles = theme => ({
     root: {
         width: '75%',
-        margin: `20vh auto`
+        margin: `20vh auto`,
+        paddingBottom: theme.spacing.unit * 30
     },
     button: {
         color: theme.palette.primary.contrastText,

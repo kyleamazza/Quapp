@@ -22,7 +22,7 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 12,
         flex: 1,
         height: '100%',
-        paddingBottom: theme.spacing.unit * 25
+        paddingBottom: theme.spacing.unit * 30
     },
     card: {
         maxWidth: '35vw',

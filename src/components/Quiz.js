@@ -49,7 +49,9 @@ const quizFromDB = [
 ];
 
 const styles = theme => ({
-
+    root: {
+        paddingBottom: theme.spacing.unit * 30
+    }
 });
 
 class Quiz extends React.Component {
@@ -81,8 +83,9 @@ class Quiz extends React.Component {
 
     render() {
         const { questionNum, quiz } = this.state;
+        const { classes } = this.props;
         return (
-            <Grid container direction="column">
+            <Grid container direction="column" className={classes.root}>
                 {
                     questionNum <= quiz.length ? (
                         <Grid item container>

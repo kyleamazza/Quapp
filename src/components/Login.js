@@ -23,7 +23,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
     root: {
         marginTop: theme.spacing.unit * 12,
-        paddingBottom: theme.spacing.unit * 25
+        paddingBottom: theme.spacing.unit * 30
     },
     card: {
         maxWidth: '35vw',
