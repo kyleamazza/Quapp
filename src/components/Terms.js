@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 const styles = theme => ({
     root: {
         margin: "0 auto",
-        paddingBottom: theme.spacing.unit * 35
+        paddingBottom: theme.spacing.paddingBottom
     },
     textContainer: {
         flexDirection: "column",

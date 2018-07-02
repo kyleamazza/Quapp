@@ -50,7 +50,7 @@ const quizFromDB = [
 
 const styles = theme => ({
     root: {
-        paddingBottom: theme.spacing.unit * 30
+        paddingBottom: theme.spacing.paddingBottom
     }
 });
 

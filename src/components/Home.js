@@ -10,7 +10,7 @@ const styles = theme => ({
     root: {
         width: '75%',
         margin: `20vh auto`,
-        paddingBottom: theme.spacing.unit * 30
+        paddingBottom: theme.spacing.paddingBottom
     },
     button: {
         color: theme.palette.primary.contrastText,

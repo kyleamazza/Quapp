@@ -71,7 +71,7 @@ class Footer extends React.Component {
                     <Grid item>
                         <Link to="/privacypolicy" className={classes.link}>Privacy Policy</Link>
                         <Divider />
-                        <Link to="/terms" className={classes.link}>Terms</Link>
+                        <Link to="/terms" className={classes.link}>Terms of Service</Link>
                     </Grid>
                 </Grid>
             </Grid>
