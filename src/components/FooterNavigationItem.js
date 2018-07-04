@@ -22,7 +22,7 @@ const FooterNavigationItem = props => {
     const { classes, text } = props;
     return (
         <Link to={`/${text}`} className={classes.root}>
-            <Typography variant="subtitle">{text}</Typography>
+            <Typography variant="subheading">{text}</Typography>
         </Link>
     );
 };
