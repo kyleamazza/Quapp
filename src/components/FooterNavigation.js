@@ -3,10 +3,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import FooterNavigationItem from "./FooterNavigationItem";
-
-const Divider = () => {
-    return <span style={{ marginLeft: 3, marginRight: 3 }}> | </span>;
-};
+import Divider from "./Divider";
 
 const FooterNavigation = props => {
     this.props = props;
