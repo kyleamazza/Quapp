@@ -1,4 +1,4 @@
-const { db } = require('./firebase');
+import { db } from './firebase';
 
 const createUserWithEmailAndPassword = (id, email) => {
     db.ref(`users/${id}`).set({
@@ -6,4 +6,7 @@ const createUserWithEmailAndPassword = (id, email) => {
     });
 };
 
-module.exports = createUserWithEmailAndPassword;
+
+export {
+    createUserWithEmailAndPassword
+};

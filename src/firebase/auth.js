@@ -1,7 +1,5 @@
-const { auth } = require('./firebase');
+import { auth } from './firebase';
 
-const doCreateUserWithEmailAndPassword = (email, password) => {
+export const doCreateUserWithEmailAndPassword = (email, password) => {
     return auth.createUserWithEmailAndPassword(email, password);
 };
-
-module.exports = doCreateUserWithEmailAndPassword;

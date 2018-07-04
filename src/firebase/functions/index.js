@@ -24,5 +24,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.ahhh = functions.auth.user().onCreate(user => {
-    console.log("yo");
+    console.log("yay");
+    return "yay";
 });
