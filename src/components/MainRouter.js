@@ -12,6 +12,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import Quiz from "./Quiz";
+import Settings from "./Settings";
 import PrivacyPolicy from "./PrivacyPolicy";
 import Terms from "./Terms";
 import FourOhFour from "./FourOhFour";
@@ -42,6 +43,7 @@ class MainRouter extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/quiz" component={Quiz} />
+                    <Route path="/settings" component={Settings} />
                     <Route path="/privacypolicy" component={PrivacyPolicy} />
                     <Route path="/terms" component={Terms} />
                     <Route path="*" component={FourOhFour} />
