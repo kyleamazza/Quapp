@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import SchoolIcon from "@material-ui/icons/School";
 
 import FooterNavigation from "./FooterNavigation"; 
+import Divider from "./Divider";
 
 const styles = theme => ({
     footer: {
@@ -37,14 +38,7 @@ const styles = theme => ({
     }
 });
 
-const Divider = () => {
-    return <span> | </span>;
-};
-
 class Footer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { classes } = this.props;
         return (
