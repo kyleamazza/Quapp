@@ -1,12 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
-import 'firebase/functions';
-
-const functions = require('firebase-functions');
-console.log(__dirname);
-
-console.log(process.env);
+const firebase = require('firebase/app');
+const auth = require('firebase/auth');
+const firestore = require('firebase/firestore');
 
 // We can also create a development project by creating a second 
 // firebase app, and use those credentials to create a devConfig object.
@@ -25,6 +19,5 @@ if (!firebase.apps.length) {
 
 const db = firebase.firestore();
 const auth = firebase.auth();
-const functionss = firebase.functions();
 
-export { db, auth, functions };
+export { db, auth };
