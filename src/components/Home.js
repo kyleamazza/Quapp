@@ -26,7 +26,7 @@ const styles = theme => ({
         backgroundImage: `linear-gradient(155deg, rgba(233,234,238, 0.8), rgba(201,206,209, 0.85))`
     },
     grid3: {
-        padding: 150,
+        padding: 100,
         paddingBottom: theme.spacing.paddingBottom
     },
     button: {
@@ -153,15 +153,18 @@ class Home extends React.Component {
                         </Button>
                     </Grid>
                 </Grid>
-                <Grid container className={classes.grid3} justify="space-between">
+                <Grid container className={classes.grid3} direction="row" justify="space-between" wrap="nowrap">
                     <Card className={classes.card2}>
                         <CardContent>
-                            <Typography variant="display3">
+                            <Typography variant="display3" className={classes.section2Headline}>
                                 Study with others
                             </Typography>
-                            <Typography variant="headline">
-                                Quapp isn't just for the classroom. Create quizzes for you and your study group to practice with!
+                            <Typography variant="headline" style={{marginBottom: 80}}>
+                                Quapp isn't just for the classroom. Create quizzes for you and your study group to practice with! Start a Quapp Study Group today!
                             </Typography>
+                            <Button variant="raised" color="primary">
+                                Learn More
+                            </Button>
                         </CardContent>
                     </Card>
                     <Card className={classes.card2}>
