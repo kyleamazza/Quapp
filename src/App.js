@@ -1,8 +1,13 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { hot } from "react-hot-loader";
+
+import { withStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { indigo, pink } from "@material-ui/core/colors";
+
+import firebase from "firebase/app";
+import { auth } from "./firebase";
 
 import MainRouter from "./components/MainRouter";
 
@@ -26,7 +31,7 @@ const theme = createMuiTheme({
     },
     spacing: {
         unit: 8,
-        paddingBottom: 280
+        paddingBottom: 240
     },
     typography: {
         display3: {
@@ -43,15 +48,46 @@ const styles = {
 };
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            authUser: null,
+            loading: true
+        };
+    }
+
+    componentDidMount() {
+        this.removeListener = firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.setState({
+                    authUser: true,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    authUser: false,
+                    loading: false
+                });
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        this.removeListener();
+    }
+
     render() {
+        const { classes } = this.props;
+        const { authUser } = this.state;
         return (
             <BrowserRouter style={styles.root}>
                 <MuiThemeProvider theme={theme}>
-                    <MainRouter />
+                    <MainRouter authUser />
                 </MuiThemeProvider>
             </BrowserRouter>
         );
     }
 }
 
-export default hot(module)(App);
+export default hot(module)(withStyles(styles)(App));

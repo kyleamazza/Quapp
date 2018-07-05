@@ -5,6 +5,9 @@ import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
+
 import MenuBar from "./MenuBar";
 import Footer from "./Footer";
 import Home from "./Home";
@@ -33,17 +36,25 @@ class MainRouter extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, authUser } = this.props;
         return (
             <div className={classes.root}>
-                <MenuBar />
+                <MenuBar authUser />
                 <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/signup" component={Signup} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/quiz" component={Quiz} />
-                    <Route path="/settings" component={Settings} />
+                    <PublicRoute exact path="/" component={Home} authUser />
+                    <PublicRoute path="/signup" component={Signup} authUser />
+                    <PublicRoute path="/login" component={Login} authUser />
+                    <PrivateRoute
+                        path="/dashboard"
+                        component={Dashboard}
+                        authUser
+                    />
+                    <PrivateRoute path="/quiz" component={Quiz} />
+                    <PrivateRoute
+                        path="/settings"
+                        component={Settings}
+                        authUser
+                    />
                     <Route path="/privacypolicy" component={PrivacyPolicy} />
                     <Route path="/terms" component={Terms} />
                     <Route path="*" component={FourOhFour} />

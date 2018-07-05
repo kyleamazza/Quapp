@@ -11,6 +11,9 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import SchoolIcon from "@material-ui/icons/School";
 
+import MenuBarNavAuth from "./MenuBarNavAuth";
+import MenuBarNavNonAuth from "./MenuBarNavNonAuth";
+
 const styles = theme => ({
     root: {
         paddingTop: theme.spacing.unit * 1,
@@ -18,11 +21,15 @@ const styles = theme => ({
         paddingLeft: theme.spacing.unit * 3,
         paddingRight: theme.spacing.unit * 3
     },
+    brandContainer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center"
+    },
     brand: {
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
-        flex: 1
+        alignItems: "center"
     },
     icon: {
         color: "#111",
@@ -64,38 +71,35 @@ class MenuBar extends React.Component {
         const { location } = this.props;
     }
     render() {
-        const { classes } = this.props;
+        const { classes, authUser } = this.props;
         return (
             <AppBar className={classes.root} position="static">
                 <Toolbar>
-                    <Link to="/" className={classes.brand}>
-                        <IconButton className={classes.icon}>
-                            <SchoolIcon className={classes.icon} />
-                        </IconButton>
-                        <Typography
-                            variant="display3"
-                            className={classes.title}>
-                            Quapp!
-                        </Typography>
-                    </Link>
-                    <Link to="/login" className={classes.flex}>
-                        <Button className={classes.secondaryLink}>
-                            <Typography
-                                variant="title"
-                                className={classes.contrastText}>
-                                Log In
-                            </Typography>
-                        </Button>
-                    </Link>
-                    <Link to="/signup" className={classes.flex}>
-                        <Button className={classes.secondaryLink}>
-                            <Typography
-                                variant="title"
-                                className={classes.contrastText}>
-                                Sign Up
-                            </Typography>
-                        </Button>
-                    </Link>
+                    <Grid container justify="space-between" alignItems="center">
+                        <Grid
+                            item
+                            className={classes.brandContainer}>
+                            <Link to="/" className={classes.brand}>
+                                <IconButton className={classes.icon}>
+                                    <SchoolIcon className={classes.icon} />
+                                </IconButton>
+                                <Typography
+                                    variant="display3"
+                                    className={classes.title}>
+                                    Quapp!
+                                </Typography>
+                            </Link>
+                        </Grid>
+                        <Grid item>
+                        { 
+                            authUser ? (
+                                <MenuBarNavAuth />
+                            ) : (
+                                <MenuBarNavNonAuth />
+                            )
+                        }
+                        </Grid>
+                    </Grid>
                 </Toolbar>
             </AppBar>
         );

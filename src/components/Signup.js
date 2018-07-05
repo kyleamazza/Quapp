@@ -15,14 +15,14 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
-import { auth, db } from '../firebase';
+import { auth } from '../firebase';
 
 const styles = theme => ({
     root: {
         marginTop: theme.spacing.unit * 12,
         flex: 1,
         height: '100%',
-        paddingBottom: theme.spacing.paddingBottom
+        paddingBottom: theme.spacing.paddingBottom + 50,
     },
     card: {
         maxWidth: '35vw',
@@ -78,11 +78,14 @@ class Signup extends React.Component {
         };
     }
 
+    componentWillMount = () => {
+        console.log("component mounting");
+        console.log(auth);
+    }
+
     handleInputChange = (event) => {
         const name = event.target.id;
         const value = event.target.value;
-
-        console.log(event.target.id);
 
         this.setState({
             [name]: value
