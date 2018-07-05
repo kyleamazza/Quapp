@@ -9,5 +9,10 @@ export const doSignInUserWithEmailAndPassword = (email, password) => {
 };
 
 export const doSignOut = () => {
+    console.log("No really, please sign me out");
     return auth.signOut();
+};
+
+export const isAuthenticated = () => {
+    return auth.currentUser;
 };

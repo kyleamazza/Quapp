@@ -25,7 +25,7 @@ import { auth } from "../firebase";
 const styles = theme => ({
     root: {
         marginTop: theme.spacing.unit * 12,
-        paddingBottom: theme.spacing.paddingBottom
+        paddingBottom: theme.spacing.paddingBottom + 50
     },
     card: {
         maxWidth: "35vw",
@@ -103,14 +103,14 @@ class Login extends React.Component {
             this.setState({ error: "Password error (replace this)" });
         } else {
             auth.doSignInUserWithEmailAndPassword(user.email, user.password)
-            .then((authUser) => {
-                console.log("Auth user");
-                console.log(authUser);
-                this.setState({ redirectToReferrer: true });
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then(authUser => {
+                    console.log("Auth user");
+                    console.log(authUser);
+                    this.setState({ redirectToReferrer: true });
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
         return false;
     };

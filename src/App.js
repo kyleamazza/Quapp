@@ -51,14 +51,17 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
+        console.log("App constructor");
         this.state = {
-            authUser: null,
+            authUser: false,
             loading: true
         };
     }
 
     componentDidMount() {
         this.removeListener = firebase.auth().onAuthStateChanged(user => {
+            console.log("Auth state changed");
+            console.log(user);
             if (user) {
                 this.setState({
                     authUser: true,
@@ -80,10 +83,12 @@ class App extends React.Component {
     render() {
         const { classes } = this.props;
         const { authUser } = this.state;
+
+        console.log(authUser);
         return (
             <BrowserRouter style={styles.root}>
                 <MuiThemeProvider theme={theme}>
-                    <MainRouter authUser />
+                    <MainRouter authUser={authUser} />
                 </MuiThemeProvider>
             </BrowserRouter>
         );

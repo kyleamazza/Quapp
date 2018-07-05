@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import { auth } from '../firebase';
+import { auth } from "../firebase";
 
 const styles = theme => ({
     secondaryLink: {
@@ -26,12 +26,25 @@ const styles = theme => ({
 });
 
 class MenuBarNavAuth extends React.Component {
-
-    handleSignOut = (event) => {
-        auth.doSignOut();
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false
+        };
     }
 
+    handleSignOut = event => {
+        console.log("Trying to sign out");
+        auth.doSignOut()
+        .then((res) => {
+            this.setState({ redirect: true });
+        });
+    };
+
     render() {
+        if (this.state.redirect) {
+            return <Redirect to="/" />;
+        }
         const { classes } = this.props;
         return (
             <Grid container>
@@ -44,18 +57,18 @@ class MenuBarNavAuth extends React.Component {
                         </Typography>
                     </Button>
                 </Link>
-                <Link to="#" className={classes.flex}>
-                    <Button onClick={this.handleSignOut} className={classes.secondaryLink}>
-                        <Typography
-                            variant="title"
-                            className={classes.contrastText}>
-                            Sign Out
-                        </Typography>
-                    </Button>
-                </Link>
+                <Button
+                    onClick={this.handleSignOut}
+                    className={classes.secondaryLink}>
+                    <Typography
+                        variant="title"
+                        className={classes.contrastText}>
+                        Sign Out
+                    </Typography>
+                </Button>
             </Grid>
         );
     }
-};
+}
 
 export default withStyles(styles)(MenuBarNavAuth);

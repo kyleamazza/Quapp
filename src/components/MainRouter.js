@@ -37,23 +37,42 @@ class MainRouter extends React.Component {
 
     render() {
         const { classes, authUser } = this.props;
+        console.log("User logged in?");
+        console.log(authUser);
         return (
             <div className={classes.root}>
-                <MenuBar authUser />
+                <MenuBar authUser={authUser} />
                 <Switch>
-                    <PublicRoute exact path="/" component={Home} authUser />
-                    <PublicRoute path="/signup" component={Signup} authUser />
-                    <PublicRoute path="/login" component={Login} authUser />
+                    <PublicRoute
+                        exact
+                        path="/"
+                        component={Home}
+                        authUser={authUser}
+                    />
+                    <PublicRoute
+                        path="/signup"
+                        component={Signup}
+                        authUser={authUser}
+                    />
+                    <PublicRoute
+                        path="/login"
+                        component={Login}
+                        authUser={authUser}
+                    />
                     <PrivateRoute
                         path="/dashboard"
                         component={Dashboard}
-                        authUser
+                        authUser={authUser}
                     />
-                    <PrivateRoute path="/quiz" component={Quiz} />
+                    <PrivateRoute
+                        path="/quiz"
+                        component={Quiz}
+                        authUser={authUser}
+                    />
                     <PrivateRoute
                         path="/settings"
                         component={Settings}
-                        authUser
+                        authUser={authUser}
                     />
                     <Route path="/privacypolicy" component={PrivacyPolicy} />
                     <Route path="/terms" component={Terms} />

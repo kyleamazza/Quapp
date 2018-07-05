@@ -23,7 +23,7 @@ const styles = theme => ({
     },
     header: {
         flexDirection: "column",
-        alignItems: "left",
+        alignItems: "flex-start",
         paddingTop: 50,
         paddingLeft: 400
     },
