@@ -17,40 +17,55 @@ import QuizQuestion from './QuizQuestion';
 // Temp variable, replace with DB data
 const quizFromDB = [
     {
-        questionText: 'How many questions are there here?',
+        questionText: 'Inside which HTML element does JavaScript go?',
         options: [
-            'One',
-            'Three',
-            'No',
-            'True'
-        ],
-        answer: 'd'
-    },
-    {
-        questionText: 'How many are there are there really?',
-        options: [
-            'Jaden Smith',
-            'Mirrors are eyes to our mirrors',
-            'Yeah probably same here',
-            'Agreed'
+            '<meta>',
+            '<link>',
+            '<script>',
+            'None of the above'
         ],
         answer: 'c'
     },
     {
-        questionText: 'Hey it\'s me, ur brother',
+        questionText: 'Which is not a lifecycle method in React?',
         options: [
-            'No',
-            'No u',
-            'Yes me',
-            'No rly'
+            'componentShouldUpdate',
+            'componentDidUpdate',
+            'componentWillMount',
+            'ComponentWillReceiveState'
         ],
-        answer: 'a'
+        answer: 'd'
+    },
+    {
+        questionText: 'Who will win the World Cup 2018',
+        options: [
+            'Probably not the USA',
+            'Not the USA',
+            'Nope not those guys',
+            'Not even Mexico? Come on...'
+        ],
+        answer: 'c'
     }
 ];
 
 const styles = theme => ({
     root: {
-        paddingBottom: theme.spacing.paddingBottom
+        paddingBottom: theme.spacing.paddingBottom,
+        alignItems: "center",
+        paddingTop: 65
+    },
+    quizContainer: {
+        width: "45%"
+    },
+    button: {
+        maxWidth: 150,
+        alignSelf: "center"
+    },
+    finishText: {
+        color: "#000",
+        textAlign: "center",
+        paddingTop: 85,
+        marginBottom: 80
     }
 });
 
@@ -88,24 +103,22 @@ class Quiz extends React.Component {
             <Grid container direction="column" className={classes.root}>
                 {
                     questionNum <= quiz.length ? (
-                        <Grid item container>
-                            <Typography variant="title">
+                        <Grid item container direction="column" className={classes.quizContainer}>
+                            <Typography variant="headline">
                                 Question {questionNum}
                             </Typography>
                             <QuizQuestion content={this.state.quiz[this.state.questionNum - 1]} />
-                            <Button variant="raised" color="primary" onClick={this.handleQuestionSubmit}>
+                            <Button variant="raised" color="primary" onClick={this.handleQuestionSubmit} className={classes.button}>
                                 Next
                             </Button>
                         </Grid>
                     ) : (
-                        <Grid item container direction="column">
-                            <Typography variant="display4" color="primary">
-                                ur done
+                        <Grid item container direction="column" className={classes.quizContainer}>
+                            <Typography variant="display2" className={classes.finishText}>
+                                Quiz complete!
                             </Typography>
-                            <Button variant="raised" color="primary" onClick={this.handleFinishQuiz}>
-                                <Typography variant="body1">
-                                    Submit
-                                </Typography>
+                            <Button variant="raised" color="primary" onClick={this.handleFinishQuiz} className={classes.button}>
+                                Submit
                             </Button>
                         </Grid>
                     )

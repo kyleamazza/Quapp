@@ -15,6 +15,9 @@ import Typography from "@material-ui/core/Typography";
 import SettingsIcon from "@material-ui/icons/Settings";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import AssignmentIcon from "@material-ui/icons/Assignment";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import AnnouncementIcon from "@material-ui/icons/Announcement";
+import HelpIcon from "@material-ui/icons/Help";
 
 import Settings from "./Settings";
 
@@ -48,7 +51,7 @@ class SideMenu extends React.Component {
                         <Link to={`${match.url}`}>
                             <ListItem button>
                                 <ListItemIcon>
-                                    <SettingsIcon />
+                                    <AssignmentIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Quizzes" />
                             </ListItem>
@@ -65,9 +68,30 @@ class SideMenu extends React.Component {
                         <Divider />
                         <ListItem button>
                             <ListItemIcon>
-                                <AssignmentIcon />
+                                <BookmarkIcon />
                             </ListItemIcon>
-                            <ListItemText primary="Spoof Text here" />
+                            <ListItemText primary="Gradebook" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem button>
+                            <ListItemIcon>
+                                <SettingsIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Preferences" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HelpIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Support" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AnnouncementIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Feedback" />
                         </ListItem>
                         <Divider />
                     </List>

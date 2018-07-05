@@ -5,36 +5,28 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 import BackgroundImage from "../images/hero-image.jpg";
+import QuappImage from "../images/quapp-dashboard.png";
 
 const styles = theme => ({
     root: {
-        paddingBottom: theme.spacing.paddingBottom
-    },
-    grid1: {
+        paddingBottom: theme.spacing.paddingBottom,
         backgroundImage: `url(${BackgroundImage})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
-        border: "5px solid red"
+        backgroundPosition: "0 80%"
     },
+    grid1: {},
     grid2: {
-        border: "5px solid purple",
-        padding: 50,
-        backgroundImage: `linear-gradient(155deg, ${
-            theme.palette.primary.dark
-        }, ${theme.palette.primary.light})`
+        backgroundImage: `linear-gradient(155deg, rgba(233,234,238, 0.8), rgba(201,206,209, 0.85))`
     },
     grid3: {
         padding: 150,
-        backgroundImage: `url(${BackgroundImage})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        border: "5px solid red",
         paddingBottom: theme.spacing.paddingBottom
     },
     button: {
@@ -51,30 +43,52 @@ const styles = theme => ({
         color: theme.palette.primary.contrastText
     },
     card: {
-        maxWidth: 500
+        maxWidth: 500,
+        boxShadow:
+            "0px 1px 50px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.14), 0px 4px 1px -1px rgba(0, 0, 0, 0.12)",
+        backgroundColor: "rgba(255, 255, 255, 0)"
     },
     cardContent1: {
         display: "flex",
         flexDirection: "column"
     },
     headlineGrid: {
-        paddingLeft: "20vw",
-        paddingTop: "15vh",
-        paddingBottom: "15vh"
-    },
-    headline: {
-        fontFamily: '"Anton"'
-    },
-    headlineGrid2: {
         paddingTop: "15vh",
         paddingBottom: "15vh",
-        justifyContent: "space-around"
+        width: "75%",
+        alignItems: "center"
+    },
+    headline: {
+        fontFamily: '"Anton"',
+        textAlign: "center",
+        marginBottom: 25
+    },
+    headline2: {
+        marginBottom: 25
+    },
+    headlineGrid2: {
+        paddingTop: "5vh",
+        paddingBottom: "5vh",
+        justifyContent: "space-around",
+        alignItems: "center",
+        width: "50%"
     },
     card2: {
+        width: 600,
         maxWidth: 600
     },
     cardContent2: {
         minWidth: 5
+    },
+    section2Typography: {
+        color: "#000",
+    },
+    section2Headline: {
+        fontFamily: '"Anton"'
+    },
+    cardMedia: {
+        height: 0,
+        paddingTop: '56.25%'
     }
 });
 
@@ -94,70 +108,64 @@ class Home extends React.Component {
                     <Grid
                         item
                         container
-                        align="flex-start"
+                        direction="column"
+                        alignItems="center"
+                        wrap="nowrap"
+                        justify="space-between"
                         className={classes.headlineGrid}>
-                        <Card className={classes.card}>
-                            <CardContent className={classes.cardContent}>
-                                <Typography
-                                    variant="display3"
-                                    className={classes.headline}>
-                                    Quapp is cool please use quapp
-                                </Typography>
-                                <Typography variant="headline">
-                                    Quapp is the app that does app things like
-                                    things that apps do. Get Quapp in your life
-                                    now. Just do it.
-                                </Typography>
-                                <Grid container item>
-                                    <Link
-                                        to="/signup"
-                                        style={{ alignSelf: "flex-end" }}>
-                                        <Button
-                                            variant="raised"
-                                            color="primary"
-                                            className={classes.headlineButton}>
-                                            Sign up for free
-                                        </Button>
-                                    </Link>
-                                </Grid>
-                            </CardContent>
-                        </Card>
+                        <Typography
+                            variant="display3"
+                            className={classes.headline}>
+                            A realtime quiz application that makes testing
+                            simple and quick.
+                        </Typography>
+                        <Typography
+                            variant="headline"
+                            className={classes.headline2}>
+                            Create, administer, and manage quizzes, and get live
+                            results.
+                        </Typography>
+                        <Link to="/signup">
+                            <Button
+                                variant="raised"
+                                color="primary"
+                                className={classes.headlineButton}>
+                                Sign up for free
+                            </Button>
+                        </Link>
                     </Grid>
                 </Grid>
-                <Grid container className={classes.grid2}>
+                <Grid container className={classes.grid2} direction="column" alignItems="center">
                     <Grid item container className={classes.headlineGrid2}>
-                        <Card className={classes.card2}>
-                            <CardContent>
-                                <Typography variant="display3">
-                                    Sample header 2
-                                </Typography>
-                                <Typography variant="headline">
-                                    lorem ipsum dolor sit amet consectitur sit
-                                    amet lorem ipsum dolor sit amet consectitur
-                                    sit amet lorem ipsum dolor sit amet
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                        <Card className={classes.card2}>
-                            <Typography variant="headline">
-                                lorem ipsum dolor sit amet consectitur sit amet
-                                lorem ipsum yes hi its me
-                            </Typography>
-                        </Card>
+                        <Typography
+                            className={classes.section2Headline}
+                            variant="display3">
+                            A better way to take tests
+                        </Typography>
+                        <Typography
+                            className={classes.section2Typography}
+                            variant="headline"
+                            style={{marginBottom: 35}}>
+                            Make pen and paper tests a thing of the past. Quapp offers a simple-to-use platform that let's you make, take, and manage tests with ease. Quapp is a lightweight, versatile solution for organizing tests in a single place without the need to run to the printer.
+                        </Typography>
+                        <Button variant="raised" color="primary">
+                            Learn More
+                        </Button>
                     </Grid>
                 </Grid>
-                <Grid container className={classes.grid3}>
+                <Grid container className={classes.grid3} justify="space-between">
                     <Card className={classes.card2}>
                         <CardContent>
                             <Typography variant="display3">
-                                Sample header2
+                                Study with others
                             </Typography>
                             <Typography variant="headline">
-                                lorem ipsum dolor sit amet consectitur sit amet
-                                lorem ipsum dolor sit amet consectitur sit amet
-                                lorem ipsum dolor sit amet
+                                Quapp isn't just for the classroom. Create quizzes for you and your study group to practice with!
                             </Typography>
                         </CardContent>
+                    </Card>
+                    <Card className={classes.card2}>
+                        <CardMedia image={QuappImage} title="quapp-dashboard" className={classes.cardMedia}/>
                     </Card>
                 </Grid>
             </div>

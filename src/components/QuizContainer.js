@@ -8,22 +8,28 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import Divider from "./Divider";
-
 const styles = theme => ({
+    grid: {
+        // marginRight: -50
+    },
     quizContainer: {
-        padding: '20px 0'
+        padding: "15px 0"
     },
     card: {
-        width: '100%'
+        width: "90%"
     },
     quizCard: {
-        width: '100%',
+        width: "90%",
         height: 100,
         maxHeight: 100
     },
     cardButton: {
-        width: '100%'
+        width: "100%",
+        justifyContent: "flex-start"
+    },
+    hr: {
+        marginBottom: 20,
+        marginTop: 20
     }
 });
 
@@ -31,28 +37,28 @@ class QuizContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeQuizzes: [
+            pastQuizzes: [
                 {
                     title: "Quiz 5",
                     class: "CECS 341"
                 },
                 {
-                    title: "Practice Quiz",
-                    class: "CECS 1234"
+                    title: "Open Book Exam 1",
+                    class: "CECS 343"
                 },
                 {
                     title: "Open Book Exam 2",
                     class: "CECS 343"
-                },
-                {
-                    title: "Closed Book Exam 2",
-                    class: "CECS 343"
                 }
             ],
-            pastQuizzes: [
+            activeQuizzes: [
                 {
-                    title: "Open Book Exam 1",
+                    title: "Open Book Exam 3",
                     class: "CECS 341"
+                },
+                {
+                    title: "Pop Quiz",
+                    class: "CECS 343"
                 }
             ]
         };
@@ -67,11 +73,11 @@ class QuizContainer extends React.Component {
                 direction="column">
                 <Grid item>
                     <Typography variant="headline">Active Quizzes</Typography>
-                    <Divider />
+                    <hr className={classes.hr} />
                     <Grid item container>
                         {activeQuizzes.map((quiz, idx) => {
                             return (
-                                <Grid item xs={4} key={idx}>
+                                <Grid container item xs={4} key={idx} className={classes.grid}>
                                     <Card className={classes.card}>
                                         <Button
                                             className={classes.cardButton}
@@ -84,7 +90,7 @@ class QuizContainer extends React.Component {
                                                     component="h3">
                                                     {quiz.title}
                                                 </Typography>
-                                                <Divider />
+                                                <hr />
                                                 <Typography
                                                     variant="body1"
                                                     component="p">
@@ -100,11 +106,11 @@ class QuizContainer extends React.Component {
                 </Grid>
                 <Grid item>
                     <Typography variant="headline">Past Quizzes</Typography>
-                    <Divider />
+                    <hr className={classes.hr} />
                     <Grid item container>
                         {pastQuizzes.map((quiz, idx) => {
                             return (
-                                <Grid item xs={4} key={idx}>
+                                <Grid item xs={4} key={idx} className={classes.grid}>
                                     <Card className={classes.card}>
                                         <Button
                                             className={classes.cardButton}
@@ -117,7 +123,7 @@ class QuizContainer extends React.Component {
                                                     component="h3">
                                                     {quiz.title}
                                                 </Typography>
-                                                <Divider />
+                                                <hr />
                                                 <Typography
                                                     variant="body1"
                                                     component="p">

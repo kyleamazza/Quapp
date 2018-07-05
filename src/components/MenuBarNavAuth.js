@@ -37,6 +37,7 @@ class MenuBarNavAuth extends React.Component {
         console.log("Trying to sign out");
         auth.doSignOut()
         .then((res) => {
+            console.log(auth.isAuthenticated());
             this.setState({ redirect: true });
         });
     };
@@ -48,7 +49,7 @@ class MenuBarNavAuth extends React.Component {
         const { classes } = this.props;
         return (
             <Grid container>
-                <Link to="/settings" className={classes.flex}>
+                <Link to="/dashboard/settings" className={classes.flex}>
                     <Button className={classes.secondaryLink}>
                         <Typography
                             variant="title"

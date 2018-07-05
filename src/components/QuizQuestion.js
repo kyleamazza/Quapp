@@ -24,7 +24,7 @@ class QuizQuestion extends React.Component {
         const { classes } = this.props;
         return (
             <Grid className={classes.root} item container direction="column">
-                <Typography variant="display1">
+                <Typography variant="display2">
                     {question.questionText}
                 </Typography>
                 <QuizOptions content={question.options} />

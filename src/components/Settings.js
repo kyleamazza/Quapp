@@ -13,25 +13,26 @@ import Switch from "@material-ui/core/Switch";
 
 const styles = theme => ({
     root: {
-        margin: "0 auto",
         paddingBottom: theme.spacing.paddingBottom
     },
     textContainer: {
         flexDirection: "column",
-        paddingLeft: 400,
-        paddingRight: 400
+        marginBottom: 15
     },
     header: {
         flexDirection: "column",
         alignItems: "flex-start",
-        paddingTop: 50,
-        paddingLeft: 400
+        marginBottom: 5
     },
     bold: {
-        fontWeight: "bold"
+        fontWeight: "bold",
+        marginBottom: 10
     },
     switches: {
-        paddingLeft: 400
+        display: "inline-block"
+    },
+    hr: {
+        marginBottom: 15
     }
 });
 
@@ -63,23 +64,23 @@ class Settings extends React.Component {
                             Settings
                         </Typography>
                     </Grid>
-                    <hr />
+                    <hr className={classes.hr} />
                     <Grid item container className={classes.textContainer}>
                         <Typography className={classes.bold} variant="title">
                             Account
                         </Typography>
-                        <hr />
+                        <hr className={classes.hr} />
                         <Typography variant="body1">
-                            Name: Example Name
+                            Name: John Doe
                         </Typography>
                         <Typography variant="body1">
-                            Email: example@example.com
+                            Email: john.doe@csulb.edu
                         </Typography>
-                        <Typography className={classes.bold} variant="title">
-                            Notifications
-                        </Typography>
-                        <hr />
                     </Grid>
+                    <Typography className={classes.bold} variant="title">
+                            Notifications
+                    </Typography>
+                    <hr className={classes.hr} />
                     <FormControl component="fieldset">
                         <FormGroup className={classes.switches}>
                             <FormControlLabel
